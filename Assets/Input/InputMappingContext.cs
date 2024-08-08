@@ -24,7 +24,7 @@ public partial class @InputMappingContext: IInputActionCollection2, IDisposable
     ""name"": ""InputMappingContext"",
     ""maps"": [
         {
-            ""name"": "" PlayerInput"",
+            ""name"": ""PlayerActions"",
             ""id"": ""c87bcaca-56f5-4f1d-9c3d-82dd03d5f86d"",
             ""actions"": [
                 {
@@ -35,6 +35,24 @@ public partial class @InputMappingContext: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Space"",
+                    ""type"": ""Button"",
+                    ""id"": ""920ebaf0-f344-487d-9c57-6ccf5d1afc01"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""a99a3208-1f6a-4c13-8f18-8c53b55ee7da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +110,96 @@ public partial class @InputMappingContext: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""534c6412-ed25-424c-8641-e25640f4ca01"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Space"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c15a79b-5809-4e69-a6dd-72c6e2e9f3d4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UIActions"",
+            ""id"": ""2b40c159-adfb-4a29-b3d8-edd41ad9acd9"",
+            ""actions"": [
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""1e0f61a4-f0cc-4fe5-9bbe-fb2bbd6e5df0"",
+                    ""expectedControlType"": ""Delta"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""0129b107-6900-4d78-b043-366af624ec8e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b0a4177-9681-45ea-bdb0-f85440f430bf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b4ada4da-838e-4641-b87c-58d1669ad2b1"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19a2fc0a-9695-42d5-83bb-e12bbc7b3f28"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4b19601-abbb-4120-99e5-c475df4e31ac"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -110,9 +218,16 @@ public partial class @InputMappingContext: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        //  PlayerInput
-        m_PlayerInput = asset.FindActionMap(" PlayerInput", throwIfNotFound: true);
-        m_PlayerInput_Movement = m_PlayerInput.FindAction("Movement", throwIfNotFound: true);
+        // PlayerActions
+        m_PlayerActions = asset.FindActionMap("PlayerActions", throwIfNotFound: true);
+        m_PlayerActions_Movement = m_PlayerActions.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerActions_Space = m_PlayerActions.FindAction("Space", throwIfNotFound: true);
+        m_PlayerActions_Interact = m_PlayerActions.FindAction("Interact", throwIfNotFound: true);
+        // UIActions
+        m_UIActions = asset.FindActionMap("UIActions", throwIfNotFound: true);
+        m_UIActions_Mouse = m_UIActions.FindAction("Mouse", throwIfNotFound: true);
+        m_UIActions_RightClick = m_UIActions.FindAction("RightClick", throwIfNotFound: true);
+        m_UIActions_LeftClick = m_UIActions.FindAction("LeftClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -171,51 +286,129 @@ public partial class @InputMappingContext: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    //  PlayerInput
-    private readonly InputActionMap m_PlayerInput;
-    private List<IPlayerInputActions> m_PlayerInputActionsCallbackInterfaces = new List<IPlayerInputActions>();
-    private readonly InputAction m_PlayerInput_Movement;
-    public struct PlayerInputActions
+    // PlayerActions
+    private readonly InputActionMap m_PlayerActions;
+    private List<IPlayerActionsActions> m_PlayerActionsActionsCallbackInterfaces = new List<IPlayerActionsActions>();
+    private readonly InputAction m_PlayerActions_Movement;
+    private readonly InputAction m_PlayerActions_Space;
+    private readonly InputAction m_PlayerActions_Interact;
+    public struct PlayerActionsActions
     {
         private @InputMappingContext m_Wrapper;
-        public PlayerInputActions(@InputMappingContext wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerInput_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
+        public PlayerActionsActions(@InputMappingContext wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlayerActions_Movement;
+        public InputAction @Space => m_Wrapper.m_PlayerActions_Space;
+        public InputAction @Interact => m_Wrapper.m_PlayerActions_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerInputActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerInputActions instance)
+        public static implicit operator InputActionMap(PlayerActionsActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerActionsActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerInputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerInputActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Space.started += instance.OnSpace;
+            @Space.performed += instance.OnSpace;
+            @Space.canceled += instance.OnSpace;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
-        private void UnregisterCallbacks(IPlayerInputActions instance)
+        private void UnregisterCallbacks(IPlayerActionsActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Space.started -= instance.OnSpace;
+            @Space.performed -= instance.OnSpace;
+            @Space.canceled -= instance.OnSpace;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
-        public void RemoveCallbacks(IPlayerInputActions instance)
+        public void RemoveCallbacks(IPlayerActionsActions instance)
         {
-            if (m_Wrapper.m_PlayerInputActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerInputActions instance)
+        public void SetCallbacks(IPlayerActionsActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerInputActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerInputActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerInputActions @PlayerInput => new PlayerInputActions(this);
+    public PlayerActionsActions @PlayerActions => new PlayerActionsActions(this);
+
+    // UIActions
+    private readonly InputActionMap m_UIActions;
+    private List<IUIActionsActions> m_UIActionsActionsCallbackInterfaces = new List<IUIActionsActions>();
+    private readonly InputAction m_UIActions_Mouse;
+    private readonly InputAction m_UIActions_RightClick;
+    private readonly InputAction m_UIActions_LeftClick;
+    public struct UIActionsActions
+    {
+        private @InputMappingContext m_Wrapper;
+        public UIActionsActions(@InputMappingContext wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Mouse => m_Wrapper.m_UIActions_Mouse;
+        public InputAction @RightClick => m_Wrapper.m_UIActions_RightClick;
+        public InputAction @LeftClick => m_Wrapper.m_UIActions_LeftClick;
+        public InputActionMap Get() { return m_Wrapper.m_UIActions; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActionsActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActionsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsActionsCallbackInterfaces.Add(instance);
+            @Mouse.started += instance.OnMouse;
+            @Mouse.performed += instance.OnMouse;
+            @Mouse.canceled += instance.OnMouse;
+            @RightClick.started += instance.OnRightClick;
+            @RightClick.performed += instance.OnRightClick;
+            @RightClick.canceled += instance.OnRightClick;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
+        }
+
+        private void UnregisterCallbacks(IUIActionsActions instance)
+        {
+            @Mouse.started -= instance.OnMouse;
+            @Mouse.performed -= instance.OnMouse;
+            @Mouse.canceled -= instance.OnMouse;
+            @RightClick.started -= instance.OnRightClick;
+            @RightClick.performed -= instance.OnRightClick;
+            @RightClick.canceled -= instance.OnRightClick;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
+        }
+
+        public void RemoveCallbacks(IUIActionsActions instance)
+        {
+            if (m_Wrapper.m_UIActionsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActionsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActionsActions @UIActions => new UIActionsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -225,8 +418,16 @@ public partial class @InputMappingContext: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
-    public interface IPlayerInputActions
+    public interface IPlayerActionsActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSpace(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IUIActionsActions
+    {
+        void OnMouse(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
     }
 }
