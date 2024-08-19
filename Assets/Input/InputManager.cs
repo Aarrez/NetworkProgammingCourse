@@ -44,9 +44,6 @@ public class PlayerInput
         playerInput.Interact.performed += ctx =>
             InteractContext?.Invoke(ctx);
         
-        playerInput.Interact.canceled += ctx =>
-            InteractContext?.Invoke(ctx);
-        
         playerInput.Space.performed += ctx =>
             SpaceContext?.Invoke(ctx);
         

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4144628103370156287}
   - component: {fileID: 1258430941050829236}
   - component: {fileID: 241773391495127304}
+  - component: {fileID: 3870512609689105815}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -159,8 +160,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 1.92, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3870512609689105815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993729725622822222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 2
 --- !u!1 &2262889172003977859
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +188,7 @@ GameObject:
   - component: {fileID: 2409411376569677799}
   - component: {fileID: 8202314171115216211}
   - component: {fileID: 7754577269344348616}
+  - component: {fileID: 3145588516103360738}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -289,8 +304,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 1.92, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3145588516103360738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262889172003977859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 3
 --- !u!1 &3319729083748781195
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +394,7 @@ GameObject:
   - component: {fileID: 8319257620724322207}
   - component: {fileID: 3586835593348591082}
   - component: {fileID: 3478207046490110442}
+  - component: {fileID: 6936944000555487674}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -481,8 +510,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 1.92, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6936944000555487674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167105494186122939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 0
 --- !u!1 &7152786901561818125
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +569,7 @@ GameObject:
   - component: {fileID: 3626679081465283393}
   - component: {fileID: 4836312619973081505}
   - component: {fileID: 6131573688740090744}
+  - component: {fileID: 6648380447895293976}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -642,8 +685,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 1.92, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6648380447895293976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693553100870702168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 1
 --- !u!1 &8433893576303604655
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,6 +709,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3196288678064331507}
+  - component: {fileID: 4005016586031295914}
+  - component: {fileID: 4974264703650528597}
+  - component: {fileID: 6766959488820183441}
   m_Layer: 0
   m_Name: CubeHodlers Player 1
   m_TagString: Untagged
@@ -679,3 +738,73 @@ Transform:
   - {fileID: 5549377280313004952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4005016586031295914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433893576303604655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3851046912
+  InScenePlacedSourceGlobalObjectIdHash: 1298901472
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &4974264703650528597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433893576303604655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6120ccd796dc4abe9ed4ec943e375df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeColor:
+  - {fileID: 2100000, guid: 251f5838cbfd47146b97ef97b0e134fd, type: 2}
+  - {fileID: 2100000, guid: 6909f59a1c7debf4e88356de77e74290, type: 2}
+  - {fileID: 2100000, guid: a221b2b5d3e8b1842826601f84a79835, type: 2}
+  - {fileID: 2100000, guid: d4d5d2413ed7fee409ef31fdba29419a, type: 2}
+  cubeColors: 00000000020000000300000001000000
+--- !u!114 &6766959488820183441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433893576303604655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0

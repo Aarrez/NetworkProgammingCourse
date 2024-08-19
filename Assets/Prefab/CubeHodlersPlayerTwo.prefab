@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3178843213602878501}
   - component: {fileID: 3151311796143586819}
   - component: {fileID: 1097151927135860485}
+  - component: {fileID: 2137773909030017400}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -128,8 +129,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2137773909030017400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430822404983841738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 3
 --- !u!1 &1825978501431502358
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +215,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7929201041419004579}
+  - component: {fileID: 6276195632668152895}
+  - component: {fileID: 6718414614787993614}
+  - component: {fileID: 5097565611492955077}
   m_Layer: 0
   m_Name: CubeHodlersPlayerTwo
   m_TagString: Untagged
@@ -227,6 +244,76 @@ Transform:
   - {fileID: 1347364512435327358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6276195632668152895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481370556969964105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3512006415
+  InScenePlacedSourceGlobalObjectIdHash: 2909772602
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &6718414614787993614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481370556969964105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6120ccd796dc4abe9ed4ec943e375df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeColor:
+  - {fileID: 2100000, guid: 251f5838cbfd47146b97ef97b0e134fd, type: 2}
+  - {fileID: 2100000, guid: 6909f59a1c7debf4e88356de77e74290, type: 2}
+  - {fileID: 2100000, guid: a221b2b5d3e8b1842826601f84a79835, type: 2}
+  - {fileID: 2100000, guid: d4d5d2413ed7fee409ef31fdba29419a, type: 2}
+  cubeColors: 02000000030000000100000000000000
+--- !u!114 &5097565611492955077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481370556969964105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &5139986491701480199
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +327,7 @@ GameObject:
   - component: {fileID: 5321538422246330157}
   - component: {fileID: 1410477929153413947}
   - component: {fileID: 2193167309761160106}
+  - component: {fileID: 4067351660035890824}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -355,8 +443,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4067351660035890824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5139986491701480199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 2
 --- !u!1 &5850179311142956208
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +471,7 @@ GameObject:
   - component: {fileID: 7060605948931818963}
   - component: {fileID: 8966480838549847935}
   - component: {fileID: 8175831126968552900}
+  - component: {fileID: 1159704289553901821}
   m_Layer: 0
   m_Name: Cylinder (3)
   m_TagString: Untagged
@@ -485,8 +587,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1159704289553901821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5850179311142956208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 1
 --- !u!1 &7806722918384281136
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +677,7 @@ GameObject:
   - component: {fileID: 6447537679109797214}
   - component: {fileID: 8899186676583954454}
   - component: {fileID: 4888839064975324244}
+  - component: {fileID: 219824550159106033}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -677,5 +793,18 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &219824550159106033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940818234795520897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c10c315067d21046a84375a0a9818b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorNumber: 0
