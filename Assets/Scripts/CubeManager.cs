@@ -2,9 +2,6 @@
 using Unity.Netcode;
 using UnityEngine;
 
-
-
-
 public class CubeManager : NetworkBehaviour
 { 
     public Material[] cubeColor;
@@ -19,7 +16,7 @@ public class CubeManager : NetworkBehaviour
     {
         holders = GetComponentsInChildren<CubleHolder>();
     }
-
+    
     public void CorrectlyAligned()
     {
         int j = 0;
@@ -32,16 +29,17 @@ public class CubeManager : NetworkBehaviour
                 {
                     completed = true;
                     Debug.Log("Puzzle completed");
-                    NetwrokManagerUI.PuzzleCompleted?.Invoke();
+                    NetworkLevelManager.PuzzleCompleted?.Invoke();
                 }
             }
             else if (completed)
             {
                 completed = false;
-                NetwrokManagerUI.UndoCompleted?.Invoke();
+                NetworkLevelManager.UndoCompleted?.Invoke();
                 return;
             }
         }
        
     }
+   
 }

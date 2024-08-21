@@ -19,13 +19,14 @@ public class PlayerController : NetworkBehaviour
     private MeshRenderer playerMesh;
     private NetworkObject netObject;
     private Vector3 moveVector;
-    private float rotation;
+    private Vector2 rotation;
     private Coroutine coUpdate;
 
     private NetworkVariable<Vector3> moveInput =
         new NetworkVariable<Vector3>();
-    private NetworkVariable<float> rotInput =
-        new NetworkVariable<float>();
+
+    private NetworkVariable<Vector2> rotInput = 
+        new NetworkVariable<Vector2>();
     
     private void Start()
     {
@@ -56,9 +57,8 @@ public class PlayerController : NetworkBehaviour
     private void ConvertMoveInput(InputAction.CallbackContext ctx)
     {
         moveVector = playerCamera.transform.forward * ctx.ReadValue<Vector2>().y;
-        rotation = ctx.ReadValue<Vector2>().x;
-        MoveRPC(moveVector);
-        RotRPC(rotation);
+        rotation = ctx.ReadValue<Vector2>();
+        InputRPC(moveVector, rotation);
     }
 
     private void SpaceInput(InputAction.CallbackContext ctx)
@@ -78,21 +78,20 @@ public class PlayerController : NetworkBehaviour
         if (IsServer)
         {
             _rigidbody.position += moveInput.Value * (Time.deltaTime * moveSpeed);
-            if (rotation != 0)
-                _rigidbody.rotation *= Quaternion.Euler(0, rotInput.Value * (rotSpeed * Time.deltaTime), 0);
-        }
             
+            if (rotInput.Value.x != 0)
+            {
+                _rigidbody.rotation *= Quaternion.Euler(0, rotInput.Value.x * (rotSpeed * Time.deltaTime), 0);
+            }
+        }
     }
     
     [Rpc(SendTo.Server)]
-    private void MoveRPC(Vector3 data)
+    private void InputRPC(Vector3 moveData, Vector2 rotData)
     {
-        moveInput.Value = data;
+        moveInput.Value = moveData;
+        rotInput.Value = rotData;
     }
 
-    [Rpc(SendTo.Server)]
-    private void RotRPC(float data)
-    {
-        rotInput.Value = data;
-    }
+    
 }
