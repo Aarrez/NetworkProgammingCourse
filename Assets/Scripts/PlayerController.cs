@@ -7,7 +7,8 @@ using UnityEngine.Serialization;
 
 public class PlayerController : NetworkBehaviour
 {
-    public static UnityAction connectionEstablished;
+    public static UnityAction DestroyPlayer;
+    
     
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Material[] playerColors;
@@ -34,6 +35,8 @@ public class PlayerController : NetworkBehaviour
         Spawnpoints = GameObject.FindGameObjectWithTag("SpawnPoints");
         netObject = GetComponent<NetworkObject>();
         playerMesh = GetComponentInChildren<MeshRenderer>();
+
+        DestroyPlayer = LevelComplete;
 
         if (IsLocalPlayer)
         {
@@ -93,5 +96,9 @@ public class PlayerController : NetworkBehaviour
         rotInput.Value = rotData;
     }
 
+    private void LevelComplete()
+    {
+        Destroy(gameObject);
+    }
     
 }

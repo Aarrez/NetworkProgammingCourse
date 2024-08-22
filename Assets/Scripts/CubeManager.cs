@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CubeManager : NetworkBehaviour
 { 
+    
+    [SerializeField] private GameObject cubePrefab;
+    
     public Material[] cubeColor;
 
     [SerializeField] private CubeColors[] cubeColors;
@@ -30,12 +33,14 @@ public class CubeManager : NetworkBehaviour
                     completed = true;
                     Debug.Log("Puzzle completed");
                     NetworkLevelManager.PuzzleCompleted?.Invoke();
+                    cubePrefab.SetActive(true);
                 }
             }
             else if (completed)
             {
                 completed = false;
                 NetworkLevelManager.UndoCompleted?.Invoke();
+                cubePrefab.SetActive(false);
                 return;
             }
         }

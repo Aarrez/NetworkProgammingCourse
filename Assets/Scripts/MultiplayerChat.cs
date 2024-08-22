@@ -14,14 +14,32 @@ public class MultiplayerChat : NetworkBehaviour
     {
         if (inputField != null)
         {
-            inputField.onSubmit.AddListener(OnSend());
-            
+            inputField.onSubmit.AddListener(OnSend);
         }
-        SubmitMessageRPC("Hello World!");
     }
 
     private void OnSend(string message)
     {
+        switch (System.Text.Encoding.Unicode.GetByteCount(message))
+        {
+            case 0: return;
+            case < 29: 
+                FixedString32Bytes messageToSend32 = new (message);
+                SubmitMessageRPC(messageToSend32);
+                break;
+            case < 61:
+                FixedString64Bytes messageToSend64 = new (message);
+                SubmitMessageRPC(messageToSend64);
+                break;
+            case < 125:
+                FixedString128Bytes messageToSend128 = new (message);
+                SubmitMessageRPC(messageToSend128);
+                break;
+            default:
+                string toLongMessage = "Message Is too long";
+                inputField.text = toLongMessage;
+                break;
+        }
         
     }
 
@@ -29,11 +47,22 @@ public class MultiplayerChat : NetworkBehaviour
     public void SubmitMessageRPC(FixedString128Bytes message)
     {
         UpdateMessageRPC(message);
+        Debug.Log("Message Sent");
     }
 
     [Rpc(SendTo.Everyone)]
     public void UpdateMessageRPC(FixedString128Bytes message)
     {
-        text.text = message.ToString();
+        if (IsLocalPlayer)
+        {
+            text.text = "Host: " + message.ToString();
+        }
+
+        if (IsClient)
+        {
+            text.text = "Client: " + message.ToString();
+        }
+        
+        
     }
 }
