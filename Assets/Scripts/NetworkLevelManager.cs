@@ -46,8 +46,6 @@ public class NetworkLevelManager : NetworkBehaviour
                     PuzzleVariableRPC(temp);
                 }
         };
-        
-        
     }
 
     [Rpc(SendTo.Server)]

@@ -1,8 +1,6 @@
-﻿using System;
-using Unity.Netcode;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CubeManager : NetworkBehaviour
+public class CubeManager : MonoBehaviour
 { 
     
     [SerializeField] private GameObject cubePrefab;

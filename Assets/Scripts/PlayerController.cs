@@ -7,10 +7,10 @@ using UnityEngine.Serialization;
 
 public class PlayerController : NetworkBehaviour
 {
-    public static UnityAction DestroyPlayer;
     
-    
+    [Header("Camera")]
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private LayerMask cameraLayerMask;
     [SerializeField] private Material[] playerColors;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotSpeed = 1000f;
@@ -35,13 +35,11 @@ public class PlayerController : NetworkBehaviour
         Spawnpoints = GameObject.FindGameObjectWithTag("SpawnPoints");
         netObject = GetComponent<NetworkObject>();
         playerMesh = GetComponentInChildren<MeshRenderer>();
-
-        DestroyPlayer = LevelComplete;
+        
 
         if (IsLocalPlayer)
         {
             PlayerInput.MovementContext += ConvertMoveInput;
-            PlayerInput.SpaceContext += SpaceInput;
         }
             
 
@@ -49,11 +47,16 @@ public class PlayerController : NetworkBehaviour
         {
             playerMesh.material = playerColors[0];
             transform.position = Spawnpoints.transform.GetChild(0).position;
+            playerCamera.cullingMask = 
+                LayerMask.GetMask("Default", "UI", "Player1");
         }
         else
         {
-            transform.position = Spawnpoints.transform.GetChild(1).position;
+            
             playerMesh.material = playerColors[1];
+            transform.position = Spawnpoints.transform.GetChild(1).position;
+            playerCamera.cullingMask = 
+                LayerMask.GetMask("Default", "UI", "Player2");
         }
     }
     
@@ -62,14 +65,6 @@ public class PlayerController : NetworkBehaviour
         moveVector = playerCamera.transform.forward * ctx.ReadValue<Vector2>().y;
         rotation = ctx.ReadValue<Vector2>();
         InputRPC(moveVector, rotation);
-    }
-
-    private void SpaceInput(InputAction.CallbackContext ctx)
-    {
-        if(ctx.performed)
-            moveSpeed += 5f;
-        else if(ctx.canceled)
-            moveSpeed -= 5f;
     }
     private void Update()
     {
@@ -94,11 +89,6 @@ public class PlayerController : NetworkBehaviour
     {
         moveInput.Value = moveData;
         rotInput.Value = rotData;
-    }
-
-    private void LevelComplete()
-    {
-        Destroy(gameObject);
     }
     
 }

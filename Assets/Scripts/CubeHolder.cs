@@ -1,8 +1,7 @@
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CubleHolder : NetworkBehaviour
+public class CubleHolder : MonoBehaviour
 {
     public int colorNumber;
     

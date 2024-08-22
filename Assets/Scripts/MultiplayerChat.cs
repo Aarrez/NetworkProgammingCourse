@@ -12,9 +12,15 @@ public class MultiplayerChat : NetworkBehaviour
     [SerializeField] private TextMeshProUGUI text;
     private void Start()
     {
-        if (inputField != null)
+        inputField = FindObjectOfType<TMP_InputField>();
+        text = GameObject.FindGameObjectWithTag("GameController").GetComponent<TextMeshProUGUI>();
+        
+        if (IsLocalPlayer)
         {
-            inputField.onSubmit.AddListener(OnSend);
+            if (inputField != null)
+            {
+                inputField.onSubmit.AddListener(OnSend);
+            }
         }
     }
 
@@ -53,16 +59,6 @@ public class MultiplayerChat : NetworkBehaviour
     [Rpc(SendTo.Everyone)]
     public void UpdateMessageRPC(FixedString128Bytes message)
     {
-        if (IsLocalPlayer)
-        {
-            text.text = "Host: " + message.ToString();
-        }
-
-        if (IsClient)
-        {
-            text.text = "Client: " + message.ToString();
-        }
-        
-        
+        text.text = "Player " + NetworkObject.NetworkObjectId+ ": " + message.ToString();
     }
 }

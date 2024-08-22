@@ -61,8 +61,6 @@ public class UIInput
     private static void GetInputMapping()
     {
         InputManager = new InputManager();
-        
-        
     }
 
     [RuntimeInitializeOnLoadMethod]
